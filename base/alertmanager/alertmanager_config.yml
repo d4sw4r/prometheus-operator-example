@@ -1,0 +1,12 @@
+---
+apiVersion: monitoring.coreos.com/v1alpha1
+kind: AlertmanagerConfig
+metadata:
+  name: alertmanager-config
+  labels:
+    alertmanagerConfig: alertmanager-config
+spec:
+  route:
+    receiver: 'empty'
+  receivers:
+    - name: 'empty'

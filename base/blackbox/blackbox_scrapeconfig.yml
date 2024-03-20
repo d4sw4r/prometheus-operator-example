@@ -1,0 +1,14 @@
+apiVersion: monitoring.coreos.com/v1alpha1
+kind: ScrapeConfig
+metadata:
+  name: blackbox-exporter
+  namespace: default
+  labels:
+    prometheus: prometheus
+    app.kubernetes.io/name: blackbox-exporter
+spec:
+  staticConfigs:
+    - labels:
+        job: blackbox
+      targets:
+        - blackbox-exporter:19115

@@ -1,0 +1,31 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: default
+resources:
+- namespace.yml
+
+- operator/operator_serviceacc.yml
+- operator/operator_role.yml
+- operator/operator_rolebinding.yml
+- operator/operator_deployment.yml
+- operator/operator_service.yml
+
+- prometheus/prometheus_serviceacc.yml
+- prometheus/prometheus_role.yml
+- prometheus/prometheus_rolebinding.yml
+- prometheus/prometheus_deployment.yml
+- prometheus/prometheus_service.yml
+- prometheus/prometheus_rule.yml
+- prometheus/prometheus_scrapeconfig.yml
+
+- alertmanager/
+
+- blackbox/
+
+images:
+  - name: prom/prometheus
+    newTag: latest
+  - name: prom/alertmanager
+    newTag: latest
+
